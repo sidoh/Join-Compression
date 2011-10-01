@@ -54,7 +54,6 @@ Table *SQLite3Table::join(Table *other, const JoinSettings& settings) {
 }
 
 void SQLite3Table::run_query() {
-	cout << query_s->c_str() << endl;
 	query = db->execQuery(query_s->c_str());
 }
 
