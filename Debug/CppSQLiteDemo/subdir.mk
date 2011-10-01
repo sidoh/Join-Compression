@@ -17,7 +17,7 @@ CPP_DEPS += \
 CppSQLiteDemo/CppSQLite3Demo.o: ../CppSQLiteDemo/CppSQLite3Demo.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross G++ Compiler'
-	g++ -I"/Users/mullins/Documents/workspace/Join-Compression/lib/sparsehash-1.11/src" -I/usr/include -I"/Users/mullins/Documents/workspace/Join-Compression/compression" -I"/Users/mullins/Documents/workspace/Join-Compression/CppSQLiteDemo" -I"/Users/mullins/Documents/workspace/Join-Compression/datastructures" -I"/Users/mullins/Documents/workspace/Join-Compression/sqlite3" -I"/Users/mullins/Documents/workspace/Join-Compression/src/DataBindings" -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"CppSQLiteDemo/CppSQLite3Demo.d" -o "$@" "$<"
+	g++ -I"../lib/sparsehash-1.11/src" -I/usr/include -I"../compression" -I"../CppSQLiteDemo" -I"../datastructures" -I"../sqlite3" -I"../src/DataBindings" -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"CppSQLiteDemo/CppSQLite3Demo.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

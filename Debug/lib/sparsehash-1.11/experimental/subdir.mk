@@ -20,7 +20,7 @@ C_DEPS += \
 lib/sparsehash-1.11/experimental/%.o: ../lib/sparsehash-1.11/experimental/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	gcc -I/usr/include -I"/Users/mullins/Documents/workspace/Join-Compression/sqlite3" -I"/Users/mullins/Documents/workspace/Join-Compression/lib/sparsehash-1.11/src" -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	gcc -I/usr/include -I"../sqlite3" -I"../lib/sparsehash-1.11/src" -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

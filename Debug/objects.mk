@@ -4,5 +4,4 @@
 
 USER_OBJS :=
 
-LIBS := -lsqlite3
-
+LIBS := -lsqlite3 -ldl
