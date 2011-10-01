@@ -16,19 +16,19 @@
 #include <InnerDictionaryEntry.h>
 #include <LeafDictionaryEntry.h>
 
-void Compressor::compress(JoinTable *table, ostream & out) {
+void Compressor::compress(JoinTable *table, ostream & out, int dict_entries) {
 	JoinTree *tree = table->get_join_tree();
 
-	out << EncodedFileHeader(MAX_ENTRIES, table->num_cols(), tree->get_length());
+	out << EncodedFileHeader(dict_entries, table->num_cols(), tree->get_length());
 	write_dictionary_definitions(tree, out);
 
 	// Initialize dictionaries
 	vector<StringDictionary*> *column_dicts = StringDictionary::get_array(
 			table->num_cols(),
-			MAX_ENTRIES);
+			dict_entries);
 	vector<IndexDictionary*> *index_dicts = IndexDictionary::get_array(
 			tree->get_length(),
-			MAX_ENTRIES);
+			dict_entries);
 
 	Row *row;
 	int i = 0;

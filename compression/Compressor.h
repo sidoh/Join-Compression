@@ -21,10 +21,15 @@ public:
 	virtual ~Compressor() { };
 
 	Table* decompress(istream& in);
-	static void compress(JoinTable *table, ostream& out);
+	
+	inline static void compress(JoinTable *table, ostream& out) {
+		compress(table, out, Compressor::DEFAULT_DICT_ENTRIES);
+	}
+
+	static void compress(JoinTable *table, ostream& out, int dict_entries);
 
 private:
-	const static unsigned long MAX_ENTRIES = 10000;
+	const static unsigned long DEFAULT_DICT_ENTRIES = 10000;
 
 	/*private vector<StringDictionary*>* col_dictionaries;
 	private vector<IndexDictionary*>* join_dictionaries;
