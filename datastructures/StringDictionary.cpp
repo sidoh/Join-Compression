@@ -11,9 +11,12 @@ void StringDictionary::push(const string& _value) {
 	string* value = new string(_value);
 
 	if (entries->size() == max_entries) {
-		reverse_entries->erase(entries->at(next_free_location));
-		delete entries->at(next_free_location);
+		string *old_value = entries->at(next_free_location);
+
+		reverse_entries->erase(old_value);
 		(*entries)[next_free_location] = value;
+
+		delete old_value;
 	}
 	else {
 		entries->push_back(value);

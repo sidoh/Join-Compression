@@ -85,7 +85,8 @@ int main(int argc, char** argv) {
 			return 1;
 		}
 
-		cout << "---> Writing raw results..." << endl;
+		cout << "---> Writing raw results...";
+		cout.flush();
 		int num_rows = 0;
 		int num_cols = query_results->num_cols();
 		for (;; num_rows++) {
@@ -105,11 +106,12 @@ int main(int argc, char** argv) {
 		raw_out.close();
 		cout << " DONE! Wrote " << num_rows << " rows." << endl;
 
-		cout << "---> Writing compressed results... " << endl;
+		cout << "---> Writing compressed results...";
+		cout.flush();
 
 		query_results->rewind();
 		ofstream comp_out(get_jc_filename(s_buffer, results_dir, query_id), ios::binary);
-		Compressor::compress(query_results, comp_out);
+		Compressor::compress(query_results, comp_out, num_dict_entries);
 		cout << " DONE!" << endl;
 	}
 }
